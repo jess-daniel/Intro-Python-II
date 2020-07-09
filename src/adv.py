@@ -55,6 +55,7 @@ while is_playing is True:
     player_input = input("What is your next move? ")
 # If the user enters a cardinal direction, attempt to move to the room there.
     def check_move(input):
+        global is_playing
         if input == "n":
             new_room = room[player.current_room].n_to
             if new_room == None:
@@ -80,12 +81,11 @@ while is_playing is True:
                 return
             player.current_room = new_room.name.lower()
         elif input == "q":
+            is_playing = False
             return
         else:
             print("Invalid movement")
 # Print an error message if the movement isn't allowed.
     check_move(player_input)
 # If the user enters "q", quit the game.
-    if player_input == "q":
-        is_playing = False
 
