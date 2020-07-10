@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -8,7 +9,7 @@ room = {
                      "North of you, the cave mount beckons"),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+passages run north and east.""", Item("ball", "round and bouncy")),
 
     'grand overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
@@ -87,5 +88,7 @@ while is_playing is True:
             print("Invalid movement")
 # Print an error message if the movement isn't allowed.
     check_move(player_input)
+
+    print("Room Items: " + str(room[player.current_room].items))
 # If the user enters "q", quit the game.
 
